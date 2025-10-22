@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import avatar from "@/assets/avatar.png";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const roles = [
-    "ECE Student",
+    "B.Tech AI & Data Science Student",
     "Full Stack Developer",
-    "IoT Enthusiast",
-    "Blockchain Developer",
+    "Java Developer",
+    "Data Analyst"
   ];
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -66,19 +67,25 @@ const Hero = () => {
         <div className="absolute w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ top: "60%", right: "10%", animationDelay: "1s" }} />
       </div>
 
-      <div className="container-custom relative z-10 text-center px-6">
+      <div className="container-custom relative z-10 text-center px-8 sm:px-12 lg:px-24 py-20">
         <div className="animate-fade-in">
           <div className="mb-8">
             <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary p-1 animate-pulse-glow">
-              <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl font-bold text-gradient">
-                YN
-              </div>
+              <img 
+                src={avatar} 
+                alt="MUTHUSURESH N" 
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground">
-            Hi, I'm <span className="text-gradient glow-effect">Your Name</span>
+            Hi, I'm <span className="text-gradient glow-effect">MUTHUSURESH N</span>
           </h1>
+          
+          <p className="text-lg text-muted-foreground mb-2">
+            📍 Chennai, Tamil Nadu, India
+          </p>
 
           <div className="h-16 mb-6">
             <p className="text-2xl md:text-3xl text-muted-foreground">
@@ -87,7 +94,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
             Building innovative solutions at the intersection of hardware and software
           </p>
 
@@ -103,6 +110,12 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/resume/MuthuSuresh_CV.pdf';
+                link.download = 'MuthuSuresh_CV.pdf';
+                link.click();
+              }}
             >
               Download Resume
             </Button>
@@ -110,7 +123,7 @@ const Hero = () => {
 
           <div className="flex gap-6 justify-center">
             <a
-              href="https://github.com"
+              href="https://github.com/MuthuSuresh5/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all transform hover:scale-110 hover:shadow-lg hover:shadow-primary/50"
@@ -118,7 +131,7 @@ const Hero = () => {
               <Github size={24} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/muthu-suresh/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all transform hover:scale-110 hover:shadow-lg hover:shadow-primary/50"
@@ -126,7 +139,7 @@ const Hero = () => {
               <Linkedin size={24} />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:nmuthusuresh2024@gmail.com"
               className="w-12 h-12 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all transform hover:scale-110 hover:shadow-lg hover:shadow-primary/50"
             >
               <Mail size={24} />

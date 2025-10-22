@@ -14,7 +14,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -38,29 +38,51 @@ const Contact = () => {
       return;
     }
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+        }),
+      });
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5" />,
       label: "Location",
-      value: "Puduchatram, Tamil Nadu, India",
+      value: "Chennai, Tamil Nadu, India",
     },
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "your.email@example.com",
+      value: "nmuthusuresh2024@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "+91 XXXXX XXXXX",
+      value: "+91 8610710063",
     },
   ];
 
@@ -77,7 +99,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="space-y-8 animate-slide-up">
             <div>
               <h3 className="text-2xl font-bold mb-4">Get In Touch</h3>
@@ -92,7 +114,7 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-4 p-4 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all"
+                  className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all"
                 >
                   <div className="p-2 rounded-lg bg-primary/10 text-primary">{info.icon}</div>
                   <div>
@@ -103,17 +125,17 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20">
+            <div className="p-4 sm:p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20">
               <h4 className="font-bold mb-2 text-lg">Available for Opportunities</h4>
               <p className="text-sm text-muted-foreground">
                 Currently seeking internships, freelance projects, and collaborative opportunities
-                in full-stack development, IoT, and blockchain.
+                in full-stack development and web applications.
               </p>
             </div>
           </div>
 
           <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <Input
                   placeholder="Your Name *"

@@ -24,21 +24,21 @@ const Skills = () => {
       ],
     },
     {
-      category: "Hardware & IoT",
+      category: "Java Development",
       skills: [
-        { name: "ESP32 & Arduino", level: 90 },
-        { name: "Circuit Design", level: 85 },
-        { name: "IoT Sensors", level: 88 },
-        { name: "Embedded Systems", level: 82 },
+        { name: "Core Java", level: 90 },
+        { name: "Spring Framework", level: 85 },
+        { name: "Spring Boot", level: 88 },
+        { name: "Hibernate/JPA", level: 82 },
       ],
     },
     {
-      category: "Blockchain & AI",
+      category: "Data Analysis",
       skills: [
-        { name: "Solidity & Web3.js", level: 80 },
-        { name: "TensorFlow", level: 75 },
-        { name: "OpenCV & MediaPipe", level: 85 },
-        { name: "Machine Learning", level: 78 },
+        { name: "Python for Data Science", level: 85 },
+        { name: "Pandas & NumPy", level: 80 },
+        { name: "Data Visualization", level: 85 },
+        { name: "SQL & Databases", level: 88 },
       ],
     },
   ];

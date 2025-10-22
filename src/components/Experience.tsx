@@ -3,36 +3,36 @@ import { GraduationCap, Award, Rocket, Trophy } from "lucide-react";
 const Experience = () => {
   const timeline = [
     {
-      year: "2024",
+      year: "2024-Present",
       icon: <Rocket className="w-6 h-6" />,
-      title: "Advanced Project Development",
+      title: "AI-Powered Platform Development",
       description:
-        "Led multiple cutting-edge projects including blockchain supply chain and real-time ML systems",
-      highlights: ["IoT Security Systems", "Blockchain Integration", "ML Applications"],
+        "Leading development of comprehensive student management platforms with AI integration, computer vision applications, and advanced web technologies",
+      highlights: ["AI Certificate Verification", "Medical Assistant Platform", "Full-Stack Development"],
     },
     {
-      year: "2023",
+      year: "2023-2024",
       icon: <Trophy className="w-6 h-6" />,
-      title: "Technical Achievements",
+      title: "MERN Stack Developer & Competition Success",
       description:
-        "Participated in hackathons and delivered full-stack web applications with modern frameworks",
-      highlights: ["MERN Stack Projects", "Hackathon Winner", "Open Source Contributions"],
+        "Specialized in full-stack development with MERN technologies, achieved finalist position in Freshathon competition, and expanded expertise in Java development and data analysis",
+      highlights: ["MERN Stack Developer", "Freshathon Finalist - Mentorship Website", "Java Developer", "Data Analyst"],
     },
     {
-      year: "2022",
+      year: "2022-2023",
       icon: <Award className="w-6 h-6" />,
-      title: "Specialized Learning",
+      title: "Full-Stack Development Mastery",
       description:
-        "Deep dive into IoT development, embedded systems, and hardware-software integration",
-      highlights: ["ESP32 Mastery", "Circuit Design", "Sensor Integration"],
+        "Mastered modern web development technologies including React, Node.js, and database management while building real-world applications",
+      highlights: ["React & Node.js", "Database Design", "API Development"],
     },
     {
-      year: "2021",
+      year: "2021-2022",
       icon: <GraduationCap className="w-6 h-6" />,
-      title: "ECE Journey Begins",
+      title: "AI & Data Science Journey Begins",
       description:
-        "Started Electronics and Communication Engineering degree with focus on innovation and practical applications",
-      highlights: ["Core ECE Fundamentals", "Programming Foundations", "Digital Electronics"],
+        "Started B.Tech Artificial Intelligence and Data Science degree with focus on programming fundamentals and data analysis",
+      highlights: ["AI/ML Fundamentals", "Java Programming", "Data Science Basics"],
     },
   ];
 

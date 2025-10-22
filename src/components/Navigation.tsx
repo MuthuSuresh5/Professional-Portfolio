@@ -47,7 +47,7 @@ const Navigation = () => {
           className="text-2xl font-bold text-gradient glow-effect"
           onClick={(e) => scrollToSection(e, "#home")}
         >
-          &lt;YourName/&gt;
+          &lt;MUTHUSURESH/&gt;
         </a>
 
         {/* Desktop Navigation */}
@@ -62,8 +62,10 @@ const Navigation = () => {
               {link.label}
             </a>
           ))}
-          <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all">
-            Download Resume
+          <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all" asChild>
+            <a href="/resume/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf">
+              Download Resume
+            </a>
           </Button>
         </div>
 
@@ -92,8 +94,10 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold w-full">
-              Download Resume
+            <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold w-full" asChild>
+              <a href="/resume/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf">
+                Download Resume
+              </a>
             </Button>
           </div>
         </div>

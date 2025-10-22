@@ -10,13 +10,13 @@ const Footer = () => {
       <div className="container-custom section-padding">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-gradient mb-4">&lt;YourName/&gt;</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4">&lt;MUTHUSURESH/&gt;</h3>
             <p className="text-muted-foreground mb-4">
-              Building innovative solutions at the intersection of hardware and software
+              Building innovative web applications with modern technologies
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/MuthuSuresh5/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all"
@@ -24,7 +24,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/muthu-suresh/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all"
@@ -32,7 +32,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:nmuthusuresh2024@gmail.com"
                 className="w-10 h-10 rounded-full bg-card border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all"
               >
                 <Mail size={20} />
@@ -58,22 +58,18 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4 text-primary">Services</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>Web Development</p>
-              <p>IoT Solutions</p>
-              <p>Blockchain Development</p>
-              <p>Machine Learning</p>
-              <p>Technical Consulting</p>
+              <p>MERN Stack Development</p>
+              <p>Full-Stack Web Apps</p>
+              <p>Responsive Design</p>
+              <p>API Development</p>
+              <p>Database Management</p>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 Your Name. Made with{" "}
-            <Heart className="inline w-4 h-4 text-primary fill-primary" /> in India
-          </p>
-          <p className="text-muted-foreground text-sm">
-            Designed & Developed with React + TypeScript
+            © 2024 MUTHUSURESH N. All rights reserved.
           </p>
         </div>
       </div>

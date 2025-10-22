@@ -4,45 +4,10 @@ const Services = () => {
   const services = [
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "Web Development",
+      title: "MERN Stack Web Development",
       description:
-        "Full-stack web applications using React, Node.js, and modern frameworks. Responsive, fast, and user-friendly.",
-      features: ["Frontend Development", "Backend APIs", "Database Design", "Responsive UI"],
-    },
-    {
-      icon: <Cpu className="w-8 h-8" />,
-      title: "IoT Integration",
-      description:
-        "Smart hardware solutions with ESP32, Arduino, and sensor networks for real-world applications.",
-      features: ["Hardware Design", "Sensor Integration", "Real-time Systems", "Mobile Alerts"],
-    },
-    {
-      icon: <Blocks className="w-8 h-8" />,
-      title: "Blockchain Development",
-      description:
-        "Decentralized applications and smart contracts on Ethereum for secure and transparent solutions.",
-      features: ["Smart Contracts", "Web3 Integration", "DApp Development", "Token Systems"],
-    },
-    {
-      icon: <Brain className="w-8 h-8" />,
-      title: "Machine Learning",
-      description:
-        "AI-powered solutions using TensorFlow, OpenCV, and MediaPipe for computer vision and predictive analytics.",
-      features: ["Computer Vision", "Predictive Models", "Real-time Detection", "Data Analysis"],
-    },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "Technical Innovation",
-      description:
-        "Custom solutions combining hardware and software to solve unique problems with cutting-edge technology.",
-      features: ["Proof of Concepts", "Prototyping", "System Integration", "Innovation Labs"],
-    },
-    {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "Technical Consulting",
-      description:
-        "Expert guidance on technology stack selection, architecture design, and implementation strategies.",
-      features: ["Tech Stack Advice", "Code Reviews", "Architecture Design", "Best Practices"],
+        "Complete full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Responsive, scalable, and modern solutions.",
+      features: ["MongoDB Database", "Express.js Backend", "React.js Frontend", "Node.js Runtime"],
     },
   ];
 
@@ -59,7 +24,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-2xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}

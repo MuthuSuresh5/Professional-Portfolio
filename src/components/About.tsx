@@ -1,4 +1,5 @@
 import { Code, Cpu, Blocks, Brain } from "lucide-react";
+import aidsImage from "@/assets/AIDS.png";
 
 const About = () => {
   const highlights = [
@@ -9,18 +10,13 @@ const About = () => {
     },
     {
       icon: <Cpu className="w-6 h-6" />,
-      title: "IoT Solutions",
-      description: "Creating smart hardware systems with ESP32 and Arduino",
-    },
-    {
-      icon: <Blocks className="w-6 h-6" />,
-      title: "Blockchain",
-      description: "Developing secure decentralized applications",
+      title: "Java Development",
+      description: "Building robust enterprise applications with Java",
     },
     {
       icon: <Brain className="w-6 h-6" />,
-      title: "Machine Learning",
-      description: "Implementing AI-powered solutions with TensorFlow",
+      title: "Data Analysis",
+      description: "Extracting insights from data using analytical tools",
     },
   ];
 
@@ -39,7 +35,11 @@ const About = () => {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative w-full aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
-                <div className="text-8xl font-bold text-gradient">ECE</div>
+                <img 
+                  src={aidsImage} 
+                  alt="AI & Data Science" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
             </div>
           </div>
@@ -49,16 +49,10 @@ const About = () => {
               Passionate Engineer & Developer
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm an Electronics and Communication Engineering student with a deep passion for
-              bridging the gap between hardware and software. My journey in technology has led me
-              to specialize in full-stack web development, IoT systems, blockchain technology, and
-              machine learning.
+              I'm a Artificial Intelligence and Data Science Engineering student with a deep fascination for technology that bridges the physical and digital worlds. My journey began with Java Developer and evolved into full-stack development.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Based in Puduchatram, Tamil Nadu, I've worked on diverse projects ranging from
-              real-time drowsiness detection systems using ESP32 and MediaPipe to building
-              transparent supply chain solutions with blockchain. I believe in creating innovative
-              solutions that make a real impact.
+              Currently pursuing my AI&DS degree while building real-world applications that solve practical problems. I specialize in creating seamless integrations web applications Development.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-6">

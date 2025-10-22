@@ -1,61 +1,40 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import portfolioPlatform from "@/assets/Portfolio Platform.png";
+import medicode from "@/assets/medicode.png";
+import mentorship from "@/assets/mentorship.jpg";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Driver Drowsiness Detection System",
+      title: "Full-Stack Student Record & Portfolio Platform",
       description:
-        "Real-time drowsiness detection using ESP32, MediaPipe, and TensorFlow Lite. Alerts drivers through buzzer and LED indicators to prevent accidents.",
-      tech: ["ESP32", "MediaPipe", "TensorFlow Lite", "Python", "IoT"],
-      github: "https://github.com",
+        "AI-powered platform for student academic & career management with smart features including certificate verification, dynamic dashboards, portfolio generation, AI mentorship chatbot, and job matching system.",
+      tech: ["React 18", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT"],
+      github: "https://github.com/MuthuSuresh5/student-record-plaform-with-ai-powered",
       demo: "https://demo.com",
-      gradient: "from-yellow-500 to-orange-500",
+      image: portfolioPlatform,
+      gradient: "from-blue-500 to-purple-500",
     },
     {
-      title: "Tea Supply Chain Blockchain Platform",
+      title: "Medicode4 - AI-Powered Medical Assistant Platform",
       description:
-        "Transparent traceability system from farm to cup using blockchain technology. Ensures authenticity and quality control throughout the supply chain.",
-      tech: ["Solidity", "Web3.js", "React", "Ethereum", "Smart Contracts"],
+        "Web-based healthcare application combining computer vision for medicine identification with AI chatbot for health guidance, featuring real-time image analysis and comprehensive history tracking.",
+      tech: ["Computer Vision", "NLP", "React", "AI/ML", "Netlify", "Image Processing"],
       github: "https://github.com",
-      demo: "https://demo.com",
-      gradient: "from-green-500 to-emerald-500",
+      demo: "https://medicode4.netlify.app/",
+      image: medicode,
+      gradient: "from-green-500 to-teal-500",
     },
     {
-      title: "Digital Student Activity Records",
+      title: "Mentorship and Project Collaboration Platform",
       description:
-        "Comprehensive MERN stack platform for Higher Education Institutions to manage and track student activities, achievements, and progress.",
-      tech: ["MongoDB", "Express.js", "React", "Node.js", "REST API"],
-      github: "https://github.com",
+        "Web platform for student project submission, mentor matching, and team formation using MERN Stack with session-based login, dashboards, notifications, and real-time chat features.",
+      tech: ["React", "Node.js", "Express.js", "HTML", "CSS", "JavaScript", "JSON"],
+      github: "https://github.com/MuthuSuresh5/TEAM-FORMATION-WEB-APPLICATION",
       demo: "https://demo.com",
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Travel Package Explorer",
-      description:
-        "Modern, responsive travel booking website with interactive UI, package comparisons, and seamless user experience. Frontend-focused design.",
-      tech: ["React", "Tailwind CSS", "TypeScript", "Framer Motion"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "IoT Security System",
-      description:
-        "ESP32-based smart security system with real-time monitoring, motion detection, and instant mobile alerts for enhanced home protection.",
-      tech: ["ESP32", "Arduino", "Firebase", "Sensors", "Mobile App"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      gradient: "from-red-500 to-rose-500",
-    },
-    {
-      title: "Account Management System",
-      description:
-        "React-based authentication system with secure login/registration, JWT tokens, and Zoom API integration for virtual meetings.",
-      tech: ["React", "JWT", "Node.js", "Zoom API", "MongoDB"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      gradient: "from-indigo-500 to-violet-500",
+      image: mentorship,
+      gradient: "from-orange-500 to-red-500",
     },
   ];
 
@@ -68,8 +47,7 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Showcasing innovative solutions across web development, IoT, blockchain, and machine
-            learning
+            Showcasing AI-powered full-stack development with real-world impact
           </p>
         </div>
 
@@ -80,12 +58,13 @@ const Projects = () => {
               className="group rounded-xl bg-card border border-primary/20 overflow-hidden hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all flex items-center justify-center">
-                  <div className="text-white text-6xl font-bold opacity-20 group-hover:opacity-30 transition-opacity">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                </div>
+              <div className="h-48 relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all" />
               </div>
 
               <div className="p-6">
@@ -121,13 +100,21 @@ const Projects = () => {
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 bg-gradient-to-r from-primary to-secondary text-background hover:shadow-lg hover:shadow-primary/50"
-                    asChild
+                    className={`flex-1 ${index === 0 ? 'bg-muted text-muted-foreground cursor-not-allowed opacity-50' : 'bg-gradient-to-r from-primary to-secondary text-background hover:shadow-lg hover:shadow-primary/50'}`}
+                    asChild={index !== 0}
+                    disabled={index === 0}
                   >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </a>
+                    {index === 0 ? (
+                      <span>
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </span>
+                    ) : (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </a>
+                    )}
                   </Button>
                 </div>
               </div>
