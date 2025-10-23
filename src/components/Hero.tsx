@@ -112,7 +112,7 @@ const Hero = () => {
               className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/resume/MuthuSuresh_CV.pdf';
+                link.href = '/MuthuSuresh_CV.pdf';
                 link.download = 'MuthuSuresh_CV.pdf';
                 link.click();
               }}
