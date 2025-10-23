@@ -1,8 +1,19 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!api/|.*\\.(pdf|png|jpg|jpeg|gif|svg|ico|css|js|woff|woff2|ttf|eot)).*)",
-      "destination": "/index.html"
+      "src": "/MuthuSuresh_CV.pdf",
+      "dest": "/MuthuSuresh_CV.pdf",
+      "headers": {
+        "Content-Type": "application/pdf"
+      }
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

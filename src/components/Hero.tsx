@@ -107,7 +107,7 @@ const Hero = () => {
               View My Work
             </Button>
             <a
-              href="https://muthusuresh-portfolio.vercel.app/MuthuSuresh_CV.pdf"
+              href="/MuthuSuresh_CV.pdf"
               download="MuthuSuresh_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
