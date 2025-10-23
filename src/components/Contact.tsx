@@ -39,7 +39,7 @@ const Contact = () => {
     }
 
     try {
-      const apiUrl = import.meta.env.DEV ? 'http://localhost:3001/api/contact' : '/api/contact';
+      const apiUrl = import.meta.env.DEV ? 'http://localhost:3001/api/contact' : '/api/store-message';
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
