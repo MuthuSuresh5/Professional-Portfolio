@@ -1,19 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/MuthuSuresh_CV.pdf",
-      "dest": "/MuthuSuresh_CV.pdf",
-      "headers": {
-        "Content-Type": "application/pdf"
-      }
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!api/|_next/|favicon.ico|.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|pdf|woff|woff2|ttf|eot)).*)",
+      "destination": "/index.html"
     }
   ]
 }
