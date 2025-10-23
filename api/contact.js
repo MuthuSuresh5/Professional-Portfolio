@@ -8,8 +8,16 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  if (req.method === 'GET') {
+    return res.status(200).json({ 
+      message: 'Contact API is working',
+      methods: ['POST'],
+      status: 'Ready to receive contact form submissions'
+    });
+  }
+
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ message: 'Method not allowed - use POST to submit contact form' });
   }
 
   try {
