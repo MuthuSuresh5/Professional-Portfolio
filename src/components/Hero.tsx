@@ -95,7 +95,7 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-            Building innovative solutions at the intersection of hardware and software
+            Building innovative software solutions
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
