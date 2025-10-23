@@ -106,20 +106,17 @@ const Hero = () => {
             >
               View My Work
             </Button>
-            <a
-              href="/MuthuSuresh_CV.pdf"
-              download="MuthuSuresh_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
+              onClick={() => {
+                // Use Google Drive direct download link
+                window.open('https://drive.google.com/uc?export=download&id=1U-U1ekhECSN2MfRWv1_QdNhBe2C0FUI0', '_blank');
+              }}
             >
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
-              >
-                Download Resume
-              </Button>
-            </a>
+              Download Resume
+            </Button>
           </div>
 
           <div className="flex gap-6 justify-center">

@@ -62,10 +62,14 @@ const Navigation = () => {
               {link.label}
             </a>
           ))}
-          <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all" asChild>
-            <a href="/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf" target="_blank" rel="noopener noreferrer">
-              Download Resume
-            </a>
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
+            onClick={() => {
+              // Use Google Drive direct download link
+              window.open('https://drive.google.com/uc?export=download&id=1U-U1ekhECSN2MfRWv1_QdNhBe2C0FUI0', '_blank');
+            }}
+          >
+            Download Resume
           </Button>
         </div>
 
@@ -94,10 +98,14 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold w-full" asChild>
-              <a href="/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf" target="_blank" rel="noopener noreferrer">
-                Download Resume
-              </a>
+            <Button 
+              className="bg-gradient-to-r from-primary to-secondary text-background font-semibold w-full"
+              onClick={() => {
+                // Use Google Drive direct download link
+                window.open('https://drive.google.com/uc?export=download&id=1U-U1ekhECSN2MfRWv1_QdNhBe2C0FUI0', '_blank');
+              }}
+            >
+              Download Resume
             </Button>
           </div>
         </div>
