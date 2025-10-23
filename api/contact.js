@@ -28,43 +28,38 @@ export default async function handler(req, res) {
       timestamp: new Date().toISOString()
     });
 
-    // Try MongoDB connection if URI is available
-    const uri = process.env.MONGODB_URI;
-    if (uri) {
-      try {
-        const { MongoClient } = await import('mongodb');
-        const client = new MongoClient(uri, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          serverSelectionTimeoutMS: 5000,
-          socketTimeoutMS: 45000,
-        });
-        await client.connect();
-        
-        const db = client.db('portfolio');
-        const collection = db.collection('contacts');
-        
-        const result = await collection.insertOne({
-          ...req.body,
-          timestamp: new Date().toISOString()
-        });
-        
-        await client.close();
-        
+    // Try to store via external service (Formspree)
+    try {
+      const formspreeResponse = await fetch('https://formspree.io/f/xdkogqpw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject: req.body.subject || 'Portfolio Contact',
+          message,
+          _replyto: email,
+          _subject: `Portfolio Contact from ${name}`,
+        }),
+      });
+      
+      if (formspreeResponse.ok) {
         return res.status(200).json({ 
-          message: 'Message saved successfully',
-          id: result.insertedId
+          message: 'Message sent and stored successfully',
+          service: 'Email notification sent'
         });
-      } catch (dbError) {
-        console.error('MongoDB error:', dbError);
-        // Continue to success response even if DB fails
       }
+    } catch (formspreeError) {
+      console.error('Formspree error:', formspreeError);
     }
 
-    // Return success regardless of DB status
+    // Always return success
     res.status(200).json({ 
       message: 'Message received successfully',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      note: 'Check your email for confirmation'
     });
   } catch (error) {
     console.error('API error:', error);
