@@ -13,7 +13,12 @@ export default async function handler(req, res) {
     }
 
     const { MongoClient } = await import('mongodb');
-    const client = new MongoClient(uri);
+    const client = new MongoClient(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
     await client.connect();
     
     const db = client.db('portfolio');
