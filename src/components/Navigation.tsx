@@ -63,7 +63,7 @@ const Navigation = () => {
             </a>
           ))}
           <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all" asChild>
-            <a href="/resume/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf">
+            <a href="/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf" target="_blank" rel="noopener noreferrer">
               Download Resume
             </a>
           </Button>
@@ -95,7 +95,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button className="bg-gradient-to-r from-primary to-secondary text-background font-semibold w-full" asChild>
-              <a href="/resume/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf">
+              <a href="/MuthuSuresh_CV.pdf" download="MuthuSuresh_CV.pdf" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </a>
             </Button>
