@@ -36,31 +36,42 @@ export default async function handler(req, res) {
       timestamp: new Date().toISOString()
     });
 
-    // Try to store via external service (Formspree)
-    try {
-      const formspreeResponse = await fetch('https://formspree.io/f/xdkogqpw', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+    // Store in MongoDB
+    const uri = process.env.MONGODB_URI;
+    if (uri) {
+      try {
+        const { MongoClient } = await import('mongodb');
+        const client = new MongoClient(uri);
+        
+        await client.connect();
+        console.log('Connected to MongoDB');
+        
+        const db = client.db('portfolio');
+        const collection = db.collection('contacts');
+        
+        const result = await collection.insertOne({
           name,
           email,
-          subject: req.body.subject || 'Portfolio Contact',
+          subject: req.body.subject || 'No subject',
           message,
-          _replyto: email,
-          _subject: `Portfolio Contact from ${name}`,
-        }),
-      });
-      
-      if (formspreeResponse.ok) {
-        return res.status(200).json({ 
-          message: 'Message sent and stored successfully',
-          service: 'Email notification sent'
+          timestamp: new Date().toISOString(),
+          ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress
         });
+        
+        await client.close();
+        console.log('Message stored with ID:', result.insertedId);
+        
+        return res.status(200).json({ 
+          message: 'Message stored in database successfully',
+          id: result.insertedId,
+          stored: true
+        });
+      } catch (dbError) {
+        console.error('MongoDB error:', dbError.message);
+        // Continue to fallback
       }
-    } catch (formspreeError) {
-      console.error('Formspree error:', formspreeError);
+    } else {
+      console.log('No MongoDB URI configured');
     }
 
     // Always return success

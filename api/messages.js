@@ -22,39 +22,37 @@ export default async function handler(req, res) {
       });
     }
 
-    // Try to connect to MongoDB
+    // Connect to MongoDB and fetch messages
     try {
       const { MongoClient } = await import('mongodb');
       const client = new MongoClient(uri);
       
-      await Promise.race([
-        client.connect(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timeout')), 10000))
-      ]);
-      
+      await client.connect();
       const db = client.db('portfolio');
       const collection = db.collection('contacts');
       
-      const messages = await collection.find({}).sort({ timestamp: -1 }).limit(5).toArray();
+      const messages = await collection.find({}).sort({ timestamp: -1 }).limit(10).toArray();
       await client.close();
 
       return res.status(200).json({ 
-        message: 'Messages retrieved from MongoDB',
+        message: 'Messages retrieved successfully',
         stored: true,
         count: messages.length,
         messages: messages.map(msg => ({
+          id: msg._id,
           name: msg.name,
           email: msg.email,
           subject: msg.subject || 'No subject',
+          message: msg.message.substring(0, 100) + '...',
           timestamp: msg.timestamp
         }))
       });
     } catch (dbError) {
-      console.error('MongoDB connection failed:', dbError.message);
+      console.error('MongoDB error:', dbError.message);
       return res.status(200).json({ 
-        message: 'MongoDB connection failed - check Vercel function logs for submissions',
+        message: 'Database connection failed',
         stored: false,
-        error: 'Database connection issue',
+        error: dbError.message,
         count: 0
       });
     }
