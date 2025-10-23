@@ -111,7 +111,12 @@ const Hero = () => {
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
               onClick={() => {
-                window.open('/MuthuSuresh_CV.pdf', '_blank');
+                const link = document.createElement('a');
+                link.href = '/api/resume';
+                link.download = 'MuthuSuresh_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
               }}
             >
               Download Resume
