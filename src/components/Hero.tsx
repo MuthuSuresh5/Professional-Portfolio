@@ -106,21 +106,20 @@ const Hero = () => {
             >
               View My Work
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/api/resume';
-                link.download = 'MuthuSuresh_CV.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
+            <a
+              href="https://muthusuresh-portfolio.vercel.app/MuthuSuresh_CV.pdf"
+              download="MuthuSuresh_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Download Resume
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-lg px-8 transition-all transform hover:scale-105"
+              >
+                Download Resume
+              </Button>
+            </a>
           </div>
 
           <div className="flex gap-6 justify-center">
